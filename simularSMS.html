@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>AlertMe - Simular SMS</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="site.html" class="menu btn-nav-esquerdo-link">Voltar ao Início</a>
+            
+            <div class="center">
+                <h1>AlertMe</h1>
+                <div class="menu-header">
+                    <button class="menu" id="btn-carregar-real">Exemplo Confiável</button>
+                    <button class="menu" id="btn-carregar-fake">Exemplo Phishing</button>
+                </div>
+            </div>
+            <img src="img/logo1.png" alt="AlertMe Logo">
+        </nav>
+    </header>
+
+    <main>
+        <div id="container-sms" class="search-container">
+            <textarea id="sms-input" class="search-bar textarea-sms" placeholder="Selecione um exemplo acima ou cole um SMS aqui..."></textarea>
+            <button id="btn-analisar-sms" class="search-btn btn-sms-posicao">Escanear SMS</button>
+        </div>
+
+        <div id="resultado-painel" class="display-none"></div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Arthur Silva Martins de Sousa. All rights reserved.</p>
+    </footer>
+
+    <script src="js/sms.js"></script>
+</body>
+</html>

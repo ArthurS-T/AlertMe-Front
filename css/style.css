@@ -1,0 +1,377 @@
+/* Reset da margin e padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Fonte usada no site */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 950px;
+    background-color: #f5f5f5;
+}
+
+/* Cor de fundo no topo e a cor do texto*/
+header {
+    background-color: #2c3e50;
+    color: white;
+    padding: 16px 32px;
+}
+
+/* Alinhamento no topo da tela */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+/* Alinha o botão da simulação sms no canto esquerdo */
+.btn-nav {
+    width: 120px; 
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    transition: color 0.3s;
+    cursor: pointer;
+    text-align: left;
+}
+
+.btn-nav:hover {
+    color: #3498db;
+}
+
+/* Agrupa o titulo e os botões */
+.center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    text-align: center;
+    flex-grow: 1;
+}
+
+/* Define o tamanho da fonte do título principal do sistema */
+header h1 {
+    font-size: 32px;
+    margin: 0;
+    line-height: 36px;
+}
+
+/* Alinha os botões to topo da tela */
+.menu-header {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 4px;
+}
+
+.menu-header button {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+.menu-header button:hover {
+    color: #3498db;
+}
+
+header img {
+    width: 100px;
+    height: auto;
+    display: block;
+}
+
+.hamburger {
+    display: none;
+    border: none;
+    background: none;
+    border-top: 3px solid white;
+    cursor: pointer;
+}
+
+.hamburger::before,
+.hamburger::after {
+    content: " ";
+    display: block;
+    width: 30px;
+    height: 3px;
+    background: white;
+    margin-top: 6px;
+    position: relative;
+    transition: 0.3s;
+}
+
+@media (max-width: 750px) {
+    .hamburger {
+        display: block;
+        z-index: 1;
+    }
+
+    .menu-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: #2c3e50;
+        clip-path: circle(100px at 90% -15%);
+        transition: 1s ease-out;
+
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        gap: 0;
+        pointer-events: none;
+    }
+
+    .menu-header button:nth-child(1) {
+        transition-delay: 0.5s 0.2s;
+        
+    }
+
+    .menu-header button:nth-child(2) {
+        transition-delay: 0.5s 0.4s;
+        
+    }
+
+    .menu-header button:nth-child(3) {
+        transition-delay: 0.5s 0.6s;
+        
+    }
+
+    .nav-container.active .menu-header {
+        clip-path: circle(1500px at 90% -15%);
+        pointer-events: all;
+    }
+
+    .nav-container.active .menu-header button {
+        opacity: 1;
+    }
+
+    .nav-container.active .hamburger {
+        position: fixed;
+        top: 26px;
+        left: 16px;
+        border-top-color: transparent;
+    }
+
+    .nav-container.active .hamburger::before {
+        transform: rotate(135deg);
+    }
+
+    .nav-container.active .hamburger::after {
+        transform: rotate(-135deg);
+        top: -7px;
+    }
+}
+
+
+
+/* Diminui o tamanho da logo para celulares ou tablets */
+@media (min-width: 480px) {
+    header img { width: 80px; }
+}
+
+/* Aumenta o tamanho da logo em computadores e notebooks */
+@media (min-width: 768px) {
+    header img { width: 100px; }
+}
+
+/* Main responsivo */
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 32px;
+    gap: 32px;
+}
+
+/* Container da barra de pesquisa */
+.search-container {
+    display: flex;
+    gap: 16px;
+    background-color: white;
+    padding: 32px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 520px;
+    justify-content: center;
+}
+
+
+.textarea-sms {
+    height: 100px;
+    resize: none;
+}
+
+.btn-sms-posicao {
+    align-self: flex-end;
+}
+
+.About {
+    width: 100%;
+    max-width: 720px;
+    background-color: white;
+    padding: 32px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.08);
+    color: #333;
+    line-height: 28px;
+}
+
+.About h2 {
+    margin-bottom: 16px;
+    color: #2c3e50;
+}
+
+.About p {
+    margin-bottom: 16px;
+}
+
+/* Barra de pesquisa */
+.search-bar {
+    padding: 12px 16px;
+    font-size: 16px;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    width: 300px;
+    transition: border-color 0.3s;
+}
+
+.search-bar:focus {
+    outline: none;
+    border-color: #3498db;
+}
+
+.search-btn {
+    padding: 12px 24px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.search-btn:hover {
+    background-color: #2980b9;
+}
+
+
+/* Rodapé */
+footer {
+    background-color: #2c3e50;
+    color: white;
+    text-align: center;
+    padding: 24px;
+    margin-top: auto;
+}
+
+
+.display-none {
+    display: none !important;
+}
+
+/* Painel com respostas da API */
+#resultado-painel {
+    width: 100%;
+    max-width: 520px;
+    padding: 24px;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: bold;
+    animation: fadeIn 0.4s ease;
+}
+
+/* Vermelho para malicioso */
+.resultado-perigo {
+    background-color: #f8cecc;
+    border: 2px solid #b85450;
+    color: #b85450;
+}
+
+/* Verde se seguro */
+.resultado-seguro {
+    background-color: #d5e8d4;
+    border: 2px solid #82b366;
+    color: #82b366;
+}
+
+/* Amarelo enquanto carrega */
+.resultado-carregando {
+    background-color: #fff2cc;
+    border: 2px solid #d6b656;
+    color: #b58900;
+}
+
+/* Deixa o resto da tela semi transparente enquanto faz login */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease;
+}
+
+/* Caixa de login */
+.modal-box {
+    background-color: white;
+    padding: 40px 32px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 400px;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.modal-box h2 {
+    margin-bottom: 24px;
+    color: #2c3e50;
+    text-align: center;
+}
+
+.input-modal {
+    width: 100%;
+    margin-bottom: 13px;
+}
+
+.btn-modal-cadastro {
+    width: 100%;
+    margin-top: 8px;
+}
+
+.close-modal {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 28px;
+    color: #999;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.close-modal:hover {
+    color: #333;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
