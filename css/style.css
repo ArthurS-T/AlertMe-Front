@@ -185,10 +185,6 @@ header img {
         pointer-events: all;
     }
 
-    .nav-container.active .menu-header button {
-        opacity: 1;
-    }
-
     .nav-container.active .hamburger {
         position: fixed;
         top: 26px;
@@ -203,6 +199,22 @@ header img {
     .nav-container.active .hamburger::after {
         transform: rotate(-135deg);
         top: -7px;
+    }
+
+    /* [FIX MOBILE] Ajuste para o container e os elementos de busca se adaptarem em telas menores */
+    .search-container {
+        flex-direction: column;   /* Empilha a barra e o botão verticalmente no mobile */
+        padding: 20px;            /* Reduz um pouco o padding interno para sobrar espaço */
+        gap: 12px;                /* Reduz o espaçamento entre a barra e o botão */
+    }
+
+    /* [FIX MOBILE] Faz a barra e o botão ocuparem toda a largura disponível no smartphone */
+    .search-bar {
+        width: 100% !important;   /* Força a barra a abandonar os 300px fixos e usar 100% da largura útil */
+    }
+
+    .search-btn {
+        width: 100%;              /* Faz o botão se estender igualmente à barra, facilitando o clique */
     }
 }
 
@@ -239,6 +251,7 @@ main {
     width: 100%;
     max-width: 520px;
     justify-content: center;
+    align-items: center; /* [FIX MOBILE] Garante o alinhamento central dos itens filhos */
 }
 
 .textarea-sms {
@@ -276,7 +289,8 @@ main {
     font-size: 16px;
     border: 2px solid #ddd;
     border-radius: 4px;
-    width: 300px;
+    width: 300px; /* Mantido para telas grandes (desktops) */
+    max-width: 100%; /* [FIX MOBILE] Garante que em nenhuma hipótese o input passe do limite do pai */
     transition: border-color 0.3s;
 }
 
