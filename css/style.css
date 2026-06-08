@@ -82,6 +82,11 @@ header h1 {
     color: #3498db;
 }
 
+.menu-header .btn-sms-nav, 
+#btn-sms-mobile {
+    display: none;
+}
+
 header img {
     width: 100px;
     height: auto;
@@ -124,26 +129,55 @@ header img {
         clip-path: circle(100px at 90% -15%);
         transition: 1s ease-out;
 
+        display: flex;
         flex-direction: column;
-        justify-content: space-around;
+        justify-content: center; /* Alinha os itens no centro vertical */
         align-items: center;
-        gap: 0;
+        gap: 16px; /* Espaçamento fixo entre os botões da caixa */
         pointer-events: none;
+    }
+
+    .menu-header .btn-sms-nav, 
+    #btn-sms-mobile {
+        display: block;
+    }
+
+    /* Estilização de caixa dos outros botões */
+    .menu-header .btn-sms-nav {
+        background-color: #34495e; 
+        border: 1px solid #4f5f6f;  
+        padding: 16px;
+        width: 260px;               
+        border-radius: 6px;         
+        text-align: center;         
+        font-size: 18px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+
+    /* Formata os botões e links do menu mobile como caixas destacadas */
+    .menu-header button, 
+    .menu-header .btn-nav {
+        background-color: #34495e; /* Fundo levemente mais claro para destacar */
+        border: 1px solid #4f5f6f;  /* Borda sutil de contorno */
+        padding: 16px;
+        width: 260px;               /* Largura fixa da caixa de destaque */
+        border-radius: 6px;         /* Cantos arredondados nas caixas */
+        text-align: center;         /* Centraliza o texto dentro da caixa */
+        font-size: 18px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
 
     .menu-header button:nth-child(1) {
         transition-delay: 0.5s 0.2s;
-        
     }
 
     .menu-header button:nth-child(2) {
         transition-delay: 0.5s 0.4s;
-        
     }
 
     .menu-header button:nth-child(3) {
         transition-delay: 0.5s 0.6s;
-        
     }
 
     .nav-container.active .menu-header {
@@ -171,7 +205,6 @@ header img {
         top: -7px;
     }
 }
-
 
 
 /* Diminui o tamanho da logo para celulares ou tablets */
@@ -207,7 +240,6 @@ main {
     max-width: 520px;
     justify-content: center;
 }
-
 
 .textarea-sms {
     height: 100px;
@@ -253,6 +285,21 @@ main {
     border-color: #3498db;
 }
 
+.input-modal {
+    padding: 12px 16px;
+    font-size: 16px;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    width: 100%;
+    margin-bottom: 13px;
+    transition: border-color 0.3s;
+}
+
+.input-modal:focus {
+    outline: none;
+    border-color: #3498db;
+}
+
 .search-btn {
     padding: 12px 24px;
     background-color: #3498db;
@@ -268,7 +315,6 @@ main {
     background-color: #2980b9;
 }
 
-
 /* Rodapé */
 footer {
     background-color: #2c3e50;
@@ -278,7 +324,6 @@ footer {
     margin-top: auto;
 }
 
-
 .display-none {
     display: none !important;
 }
@@ -286,33 +331,43 @@ footer {
 /* Painel com respostas da API */
 #resultado-painel {
     width: 100%;
-    max-width: 520px;
+    max-width: 650px; /* Aumentado  para dar espaço ao texto da IA */
     padding: 24px;
     border-radius: 8px;
-    text-align: center;
-    font-weight: bold;
+    font-weight: normal; /* Retirado o bold para melhorar a leitura de blocos longos */
+    text-align: left; /* Alinhado à esquerda para relatórios e listas ficarem naturais */
+    line-height: 1.6; /* Espaçamento de linha confortável para leitura */
+    white-space: pre-line !important; /* Faz o HTML respeitar os pulos de linha (\n) enviados pela IA */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* Sombra sutil para destacar o card */
     animation: fadeIn 0.4s ease;
+}
+
+#resultado-painel br + br {
+    display: block;
+    content: "";
+    margin-top: 8px;
 }
 
 /* Vermelho para malicioso */
 .resultado-perigo {
-    background-color: #f8cecc;
-    border: 2px solid #b85450;
-    color: #b85450;
+    background-color: #fdf2f2;
+    border: 2px solid #f8b4b4;
+    color: #9b1c1c;
 }
 
 /* Verde se seguro */
 .resultado-seguro {
-    background-color: #d5e8d4;
-    border: 2px solid #82b366;
-    color: #82b366;
+    background-color: #f3faf7;
+    border: 2px solid #def7ec;
+    color: #03543f;
 }
 
 /* Amarelo enquanto carrega */
 .resultado-carregando {
-    background-color: #fff2cc;
-    border: 2px solid #d6b656;
-    color: #b58900;
+    background-color: #fff8e1;
+    border: 2px solid #ffe082;
+    color: #b78103;
+    text-align: center; /* Mantém o carregando centralizado no meio do card */
 }
 
 /* Deixa o resto da tela semi transparente enquanto faz login */
@@ -345,11 +400,6 @@ footer {
     margin-bottom: 24px;
     color: #2c3e50;
     text-align: center;
-}
-
-.input-modal {
-    width: 100%;
-    margin-bottom: 13px;
 }
 
 .btn-modal-cadastro {

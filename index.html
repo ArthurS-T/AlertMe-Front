@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AlertMe</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script defer src="js/script.js"></script>
+</head>
+
+<body>
+    <header>
+        <nav class="nav-container">
+            <button class="hamburger"></button>
+
+            <div class="center">
+                <h1>AlertMe</h1>
+                <div class="menu-header">
+                    <a href="simularSMS.html" class="menu btn-nav" id="btn-sms-mobile">Simular SMS</a>
+                    <button class="menu" id="btn-home">Pagina Principal</button>
+                    <button class="login" id="btn-login-open">Crie sua conta</button>
+                    <button class="sobre" id="btn-sobre">Sobre</button>
+                </div>
+            </div>
+            <img src="img/logo1.png" alt="AlertMe Logo">
+        </nav>
+    </header>
+
+    <main>
+        <div id="container-url" class="search-container">
+            <input type="text" id="url-input" class="search-bar" placeholder="Exemplo: https://google.com">
+            <button id="btn-analisar" class="search-btn">Pesquisar</button>
+        </div>
+
+        <div id="resultado-painel" class="display-none"></div>
+
+        <div id="secao-about" class="About">
+
+            <h2>Bem-vindo ao AlertMe!</h2>
+            <p>O <strong>AlertMe</strong> é um ecossistema de segurança computacional inteligente projetado para
+                simular, identificar e mitigar ataques de engenharia social e <em>phishing</em> em tempo real.</p>
+
+            <h2>Como ele funciona?</h2>
+            <p>Para garantir uma análise veloz e altamente precisa, o sistema opera através de uma arquitetura de
+                proteção em camadas:</p>
+
+            <ul>
+                <li>
+                    🔍 <strong>Árvore Trie (Cache Local):</strong> Todos os
+                    domínios e URLs previamente analisados são indexados nesta árvore de prefixos. Isso permite que
+                    checagens futuras de links conhecidos sejam resolvidas localmente de forma instantânea, reduzindo o consumo de APIs externas.
+                </li>
+                <li >
+                    🛡️ <strong>VirusTotal API:</strong> Fornece uma validação baseada em histórico,
+                    consultando simultaneamente dezenas de motores de antivírus e firewalls globais para checar se o link já consta em alguma blacklist de ameaças.
+                </li>
+                <li>
+                    🧠 <strong>Google Gemini AI:</strong> O cérebro comportamental do sistema.
+                    Através de processamento de linguagem natural (NLP), o Gemini analisa o contexto do SMS (urgência,
+                    ameaças ou prêmios falsos) e a estrutura do site. Ele detecta inconsistências como uma mensagem
+                    afirmando ser de uma instituição, mas direcionando para um link suspeito, identificando ameaças
+                    inéditas que ainda não foram catalogadas por ferramentas tradicionais.
+                </li>
+            </ul>
+
+            <br><br>
+
+            <h2>Links de Referência</h2>
+            <ul>
+                <li><a href="https://www.bcb.gov.br/meubc/faqs/s/golpes">Golpes Digitais - Banco Central do Brasil</a></li>
+                <li><a href=" https://docs.virustotal.com/docs/how-it-works">Documentação Oficial do VirusTotal</a></li>
+                <li><a href="https://ai.google.dev/gemini-api/docs?hl=pt-br">Documentação Oficial do Gemini AI (Google)</a></li>
+                <li><a href="https://www.geeksforgeeks.org/dsa/introduction-to-trie-data-structure-and-algorithm-tutorials/">Árvore Trie e Algoritmos - GeeksforGeeks</a></li>
+            </ul>
+        </div>
+    </main>
+
+    <div id="login-overlay" class="overlay display-none">
+        <div class="modal-box">
+            <span id="btn-login-close" class="close-modal">&times;</span>
+            <h2>Crie sua conta</h2>
+            <form id="form-login" onsubmit="event.preventDefault();">
+                <input type="text" class="input-modal" placeholder="Nome de usuário">
+                <input type="email" class="input-modal" placeholder="E-mail">
+                <input type="password" class="input-modal" placeholder="Senha">
+                <button class="search-btn btn-modal-cadastro">Cadastrar</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 AlertMe Team. All rights reserved.</p>
+    </footer>
+
+</body>
+
+</html>

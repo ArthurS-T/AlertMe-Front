@@ -1,40 +1,175 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AlertMe - Simulador de SMS</title>
     <link rel="stylesheet" href="css/style.css">
-    <title>AlertMe - Simular SMS</title>
+    <link rel="stylesheet" href="css/smsstyle.css">
 </head>
-<body>
-    <header>
-        <nav>
-            <a href="site.html" class="menu btn-nav-esquerdo-link">Voltar ao Início</a>
-            
-            <div class="center">
-                <h1>AlertMe</h1>
-                <div class="menu-header">
-                    <button class="menu" id="btn-carregar-real">Exemplo Confiável</button>
-                    <button class="menu" id="btn-carregar-fake">Exemplo Phishing</button>
-                </div>
-            </div>
-            <img src="img/logo1.png" alt="AlertMe Logo">
-        </nav>
-    </header>
 
-    <main>
-        <div id="container-sms" class="search-container">
-            <textarea id="sms-input" class="search-bar textarea-sms" placeholder="Selecione um exemplo acima ou cole um SMS aqui..."></textarea>
-            <button id="btn-analisar-sms" class="search-btn btn-sms-posicao">Escanear SMS</button>
+<body>
+
+    <header class="site-header"
+        style="background-color: #233549; padding: 15px 40px; display: flex; justify-content: space-between; align-items: center; color: white; font-family: sans-serif;">
+        <div style="flex: 1; text-align: center; margin-left: 60px;">
+            <h1 style="margin: 0; font-size: 28px; font-weight: bold;">AlertMe</h1>
+            <nav style="margin-top: 5px; display: flex; justify-content: center; gap: 15px; font-size: 14px;">
+                <a href="index.html" style="color: #ffffff; text-decoration: none; font-weight: bold;">⬅ Voltar</a>
+            </nav>
         </div>
 
-        <div id="resultado-painel" class="display-none"></div>
-    </main>
+        <div style="font-size: 32px; display: flex; align-items: center;">
+            <img src="img/logo1.png" alt="AlertMe Logo">
+        </div>
+    </header>
 
-    <footer>
-        <p>&copy; 2026 AlertMe Team. All rights reserved.</p>
-    </footer>
+    <div class="container" style="padding: 20px;">
+
+        <main>
+            <div id="tela-lista-sms" class="phone-container-lista">
+
+                <div class="lista-header">
+                    <h2>Mensagens</h2>
+                    <div class="header-icons">
+                        <span class="icon-search" title="Buscar">🔍</span>
+                        <div class="user-avatar-mini" title="Meu Perfil">😎</div>
+                    </div>
+                </div>
+
+                <div class="lista-conversas">
+
+                    <div class="conversa-item"
+                        onclick="abrirChat('27671', 'BRADESCO CARTÕES: COMPRA EM ANÁLISE NO VALOR DE R$ 3.750,00 VIA APP MERCADO LIVRE EM 30/04/2026. NÃO RECONHECE ? ACESSE: sitemalicioso.com')">
+                        <div class="avatar-conversa">👤</div>
+                        <div class="conversa-conteudo">
+                            <div class="conversa-linha-topo">
+                                <h4>27671</h4>
+                                <span class="conversa-data">30 de abr.</span>
+                            </div>
+                            <p class="conversa-previa">BRADESCO CARTÕES: CO...</p>
+                        </div>
+                        <div class="badge-notificacao">19</div>
+                    </div>
+
+                    <div class="conversa-item"
+                        onclick="abrirChat('Bradesco', 'Bradesco informa: Evite fraudes. Acesse sempre o nosso canal oficial para acompanhar seus gastos e faturas: https://banco.bradesco/')">
+                        <div class="avatar-conversa">👤</div>
+                        <div class="conversa-conteudo">
+                            <div class="conversa-linha-topo">
+                                <h4>Bradesco</h4>
+                                <span class="conversa-data">26 de abr.</span>
+                            </div>
+                            <p class="conversa-previa">Bradesco informa: Evite fraudes. Acesse...</p>
+                        </div>
+                        <div class="badge-notificacao">45</div>
+                    </div>
+
+                    <div class="conversa-item"
+                        onclick="abrirChat('23003', 'Boa noticia Sua matrícula foi validada pela instituição. Acesse o portal do aluno.')">
+                        <div class="avatar-conversa">👤</div>
+                        <div class="conversa-conteudo">
+                            <div class="conversa-linha-topo">
+                                <h4>23003</h4>
+                                <span class="conversa-data">22 de abr.</span>
+                            </div>
+                            <p class="conversa-previa">Boa noticia Sua matrícula foi validada pela...</p>
+                        </div>
+                        <div class="badge-notificacao">4</div>
+                    </div>
+
+                    <div class="conversa-item"
+                        onclick="abrirChat('60794', 'Oi, tudo bem? Vinculei o seu código promocional pendente.')">
+                        <div class="avatar-conversa">👤</div>
+                        <div class="conversa-conteudo">
+                            <div class="conversa-linha-topo">
+                                <h4>60794</h4>
+                                <span class="conversa-data">7 de abr.</span>
+                            </div>
+                            <p class="conversa-previa">Oi, tudo bem?...</p>
+                        </div>
+                        <div class="badge-notificacao">3</div>
+                    </div>
+
+                    <div class="conversa-item"
+                        onclick="abrirChat('29759', 'ANHEMBI MORUMBI: Lembre-se: sua mensalidade está próxima do vencimento. Regularize.')">
+                        <div class="avatar-conversa">👤</div>
+                        <div class="conversa-conteudo">
+                            <div class="conversa-linha-topo">
+                                <h4>29759</h4>
+                                <span class="conversa-data">31 de mar.</span>
+                            </div>
+                            <p class="conversa-previa">ANHEMBI MORUMBI: Lembre-se: sua mensalidad...</p>
+                        </div>
+                        <div class="badge-notificacao">1</div>
+                    </div>
+
+                    <div class="conversa-item"
+                        onclick="abrirChat('TIMCOMUNICA', 'Fique atento! A partir do proximo vencimento sua fatura digital sofrerá reajustes.')">
+                        <div class="avatar-conversa">👤</div>
+                        <div class="conversa-conteudo">
+                            <div class="conversa-linha-topo">
+                                <h4>TIMCOMUNICA</h4>
+                                <span class="conversa-data">17 de mar.</span>
+                            </div>
+                            <p class="conversa-previa">Fique atento! A partir do proximo vencimento sua fat...</p>
+                        </div>
+                        <div class="badge-notificacao">2</div>
+                    </div>
+
+                    <div class="conversa-item"
+                        onclick="abrirChat('40028922', 'Alo! O que você quer ganhar? Playstation 2? Ligue para o nosso número premiado agora mesmo.')">
+                        <div class="avatar-conversa">👤</div>
+                        <div class="conversa-conteudo">
+                            <div class="conversa-linha-topo">
+                                <h4>40028922</h4>
+                                <span class="conversa-data">18 de fev.</span>
+                            </div>
+                            <p class="conversa-previa">Alo! O que você quer ganhar? Playstation 2? Ligue para...</p>
+                        </div>
+                        <div class="badge-notificacao">24</div>
+                    </div>
+
+                    <div class="conversa-item"
+                        onclick="abrirChat('29592', 'Seu codigo de verificacao para iniciar sessao no Menu Principal é 983-122.')">
+                        <div class="avatar-conversa">👤</div>
+                        <div class="conversa-conteudo">
+                            <div class="conversa-linha-topo">
+                                <h4>29592</h4>
+                                <span class="conversa-data">6 de fev.</span>
+                            </div>
+                            <p class="conversa-previa">Seu codigo de verificacao para iniciar sessao...</p>
+                        </div>
+                        <div class="badge-notificacao">32</div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div id="container-sms" class="phone-container display-none">
+
+                <div class="chat-header">
+                    <button class="btn-voltar-lista" onclick="voltarParaLista()">⬅️</button>
+                    <div class="chat-avatar" id="chat-avatar-atual">👤</div>
+                    <div class="chat-contact-info">
+                        <h3 id="chat-nome-contato">Número Desconhecido</h3>
+                        <span>SMS • Operadora</span>
+                    </div>
+                </div>
+
+                <div class="chat-messages" id="historico-sms">
+                </div>
+
+                <div class="chat-input-area">
+                    <input type="text" id="sms-input" class="chat-input-field" placeholder="Mensagem de texto...">
+                </div>
+
+            </div>
+        </main>
+    </div>
 
     <script src="js/sms.js"></script>
 </body>
+
 </html>

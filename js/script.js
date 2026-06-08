@@ -1,5 +1,5 @@
 // API no render
-const URL_BACKEND = "http://localhost:8080"; // const URL_BACKEND = "http://localhost:8080";
+const URL_BACKEND = "https://alertme-sistema.onrender.com";
 
 // Elementos de Navegação e Efeitos
 const btnSobre = document.getElementById('btn-sobre');
@@ -24,16 +24,23 @@ hamburger.addEventListener('click', () => {
     navContainer.classList.toggle('active');
 });
 
+/* Fecha o menu mobile automaticamente se o usuário clicar no botão Simular SMS dentro dele */
+document.getElementById('btn-sms-mobile').addEventListener('click', () => {
+    navContainer.classList.remove('active');
+});
+
 // Rolagem suave até a seção Sobre
 btnSobre.addEventListener('click', () => {
     secaoAbout.scrollIntoView({ behavior: 'smooth' });
+    navContainer.classList.remove('active');
 });
 
-// Botão Home apenas limpa a busca e rola para o topo
+// Botão Home, limpa a busca e rola para o topo
 btnHome.addEventListener('click', () => {
     resultadoPainel.classList.add('display-none');
     urlInput.value = "";
     window.scrollTo({ top: 0, behavior: 'smooth' });
+    navContainer.classList.remove('active'); 
 });
 
 // Controle do Overlay de Login
